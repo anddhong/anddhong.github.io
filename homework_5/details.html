@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  	<meta charset="utf-8"/>
+  	<title> Bun Bun Bakery </title>
+  	<link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+
+  <body>
+  	    <!-- Nav Bar -->
+	<header>
+	  	<div class="navbar">
+        <a class='nav-item' href="#cart">Cart<span class="badge">0</span></a>
+			<a class='nav-item' href="products.html">Products</a>
+			<a class='nav-item' href="about.html">About</a>
+			<a class='nav-item' href="home.html">Home</a>
+	  	</div>
+	  </header>
+
+	  <!-- Product Picture (left box) -->
+	  <div class="display-item"><img class='display' alt="original" src='static/bun1.jpg'>
+				<div class="desc">Original</div>
+	  </div>
+
+
+	  <!-- Product Description (right side) -->
+	  <div class="info">
+	  	<p>Our famous original cinnamon 
+			roll with your choice of 
+			icing. Delicious!
+		</p>
+		<label for="Icing">Icing: </label>
+		<select id="Icing">
+		  <option value="None">None</option>
+		  <option value="Sugar milk">Sugar milk</option>
+		  <option value="vanilla milk">vanilla milk</option>
+		  <option value="double chocolate">double chocolate</option>
+		</select>
+		  <br>
+		<label for="quantity">Quantity: </label>
+		<select id="quantity">
+		  <option value="1">1</option>
+		  <option value="3">3</option>
+		  <option value="6">6</option>
+		  <option value="12">12</option>
+		</select>
+		<br>
+
+		<button>Add to Cart</button>
+
+	  </div>
+	</body>
+</html>
