@@ -32,6 +32,7 @@ a.nav-item {
 	padding: 20px 20px 20px 20px;
 	font-size: 20px;
 	text-decoration: none;
+  font-family: 'Spartan';
 }
 
 a.nav-item:hover {
@@ -59,6 +60,8 @@ a.nav-item .badge {
 h1 {
 	text-align: center;
 	color: white;
+  font-family: 'Spartan';
+
 }
 
 div.grid-item {
@@ -84,6 +87,8 @@ div.desc {
   text-align: center;
   font-size: 150%;
   color: white;
+  font-family: 'Spartan';
+
 }
 
 /****************** Product Detail ******************/
@@ -116,6 +121,9 @@ p, label, select {
 	background-color: #242424;
 	text-align: left;
 	margin: 0px 0px 15px;
+  font-family: 'Spartan';
+
+
 }
 
 button {
@@ -129,6 +137,7 @@ button {
 	font-size: 16px;
 	margin: 4px 2px;
 	cursor: pointer;
+  font-family: 'Spartan';
 }
 
 button:hover {
