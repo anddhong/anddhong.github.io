@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  	<meta charset="utf-8"/>
+  	<title> Bun Bun Bakery </title>
+  	<link rel="stylesheet" type="text/css" href="style.css" />
+  	<link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
+  	<script src="main.js"></script>
+  </head>  
+
+  <body>
+  	<!-- Nav Bar -->
+	<header>
+	  	<div class="navbar">
+        <a class='nav-item' href="cart.html">Cart<span id="badge" class="badge">0</span></a>
+			<a class='nav-item' href="products.html">Products</a>
+			<a class='nav-item' href="about.html">About</a>
+			<a class='nav-item' href="home.html">Home</a>
+	  	</div>
+	  </header>
+
+	  <!-- Product Gallery -->
+	  <h1>Products</h1>
+			<div class="grid-item" onclick="openModal()"><img src='static/bun1.jpg' alt="original">
+				<div class="desc">Original</div>
+			</div>
+			<div class="grid-item" onclick="openModal()"><img src='static/bun2.jpg' alt="Blackberry">
+				<div class="desc">Blackberry</div>
+			</div>
+			<div class="grid-item" onclick="openModal()"><img src='static/bun3.jpg' alt="Walnut">
+				<div class="desc">Walnut</div>
+			</div>
+			<div class="grid-item" onclick="openModal()"><img src='static/bun4.jpg' alt="Original GF">
+				<div class="desc">Original (GF)</div>
+			</div>
+			<div class="grid-item" onclick="openModal()"><img src='static/bun5.jpg' alt="Pumpkin Spice">
+				<div class="desc">Pumpkin Spice</div>
+			</div>
+			<div class="grid-item" onclick="openModal()"><img src='static/bun6.jpg' alt="Caramel Pecan">
+				<div class="desc">Caramel Pecan</div>
+			</div>
+
+
+		<!--  Product Details Pop up -->
+		<div id="modal" class="modal">
+			<div class="modal-content">
+				<span class="close" onclick="closeModal()">&times;</span>
+				
+
+				<!-- Product Picture (left box) -->
+	  <div class="display-item"><img class='display' alt="original" src='static/bun1.jpg'>
+				<div class="desc">Original</div>
+	  </div>
+
+
+	  <!-- Product Description (right side) -->
+	  <div class="info">
+	  	<p>Our famous original cinnamon 
+			roll with your choice of 
+			icing. Delicious!
+		</p>
+		<label for="Icing">Icing: </label>
+		<select id="Icing">
+		  <option value="None">None</option>
+		  <option value="Sugar milk">Sugar milk</option>
+		  <option value="vanilla milk">vanilla milk</option>
+		  <option value="double chocolate">double chocolate</option>
+		</select>
+		  <br>
+		<label for="quantity">Quantity: </label>
+		<select id="quantity">
+		  <option value="1">1</option>
+		  <option value="3">3</option>
+		  <option value="6">6</option>
+		  <option value="12">12</option>
+		</select>
+		<br>
+
+		<button onclick="addToCart()">Add to Cart</button>
+
+	  </div>
+
+			</div>
+		</div>
+
+  </body>
+</html>	
