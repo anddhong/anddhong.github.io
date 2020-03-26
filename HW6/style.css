@@ -204,20 +204,21 @@ button:hover {
   padding: 8px;
 }
 
-.cart tr:nth-child(even){background-color: #f2f2f2;}
+.cart tr {background-color: #ddd;}
 
 .cart tr:hover {background-color: #ddd;}
 
-.cart th {
+.cart tr:first-child {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #9497ff;
+  background-color: #5F9EA0;
 }
 
 .delete {
   text-align: center;
   color: red;
+  background-color: #ddd;
 }
 
 .checkout{

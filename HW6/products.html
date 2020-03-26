@@ -21,22 +21,22 @@
 
 	  <!-- Product Gallery -->
 	  <h1>Products</h1>
-			<div class="grid-item" onclick="openModal()"><img src='static/bun1.jpg' alt="original">
+			<div class="grid-item" onclick="openModal('Original')"><img src='static/bun1.jpg' alt="original">
 				<div class="desc">Original</div>
 			</div>
-			<div class="grid-item" onclick="openModal()"><img src='static/bun2.jpg' alt="Blackberry">
+			<div class="grid-item" onclick="openModal('Blackberry')"><img src='static/bun2.jpg' alt="Blackberry">
 				<div class="desc">Blackberry</div>
 			</div>
-			<div class="grid-item" onclick="openModal()"><img src='static/bun3.jpg' alt="Walnut">
+			<div class="grid-item" onclick="openModal('Walnut')"><img src='static/bun3.jpg' alt="Walnut">
 				<div class="desc">Walnut</div>
 			</div>
-			<div class="grid-item" onclick="openModal()"><img src='static/bun4.jpg' alt="Original GF">
+			<div class="grid-item" onclick="openModal('Original-GF')"><img src='static/bun4.jpg' alt="Original-GF">
 				<div class="desc">Original (GF)</div>
 			</div>
-			<div class="grid-item" onclick="openModal()"><img src='static/bun5.jpg' alt="Pumpkin Spice">
+			<div class="grid-item" onclick="openModal('Pumpkin-Spice')"><img src='static/bun5.jpg' alt="Pumpkin Spice">
 				<div class="desc">Pumpkin Spice</div>
 			</div>
-			<div class="grid-item" onclick="openModal()"><img src='static/bun6.jpg' alt="Caramel Pecan">
+			<div class="grid-item" onclick="openModal('Caramel-Pecan')"><img src='static/bun6.jpg' alt="Caramel Pecan">
 				<div class="desc">Caramel Pecan</div>
 			</div>
 
@@ -59,9 +59,9 @@
 			roll with your choice of 
 			icing. Delicious!
 		</p>
-		<label for="Icing">Icing: </label>
-		<select id="Icing">
-		  <option value="None">None</option>
+		<label for="icing">Icing: </label>
+		<select id="icing">
+		  <option value="No Icing">No Icing</option>
 		  <option value="Sugar milk">Sugar milk</option>
 		  <option value="vanilla milk">vanilla milk</option>
 		  <option value="double chocolate">double chocolate</option>
@@ -69,16 +69,18 @@
 		  <br>
 		<label for="quantity">Quantity: </label>
 		<select id="quantity">
-		  <option value="1">1</option>
-		  <option value="3">3</option>
-		  <option value="6">6</option>
-		  <option value="12">12</option>
+		  <option value=1>1</option>
+		  <option value=3>3</option>
+		  <option value=6>6</option>
+		  <option value=12>12</option>
 		</select>
 		<br>
+		<p>Price: $3.00</p>
 
 		<button onclick="addToCart()">Add to Cart</button>
 
 	  </div>
+	  <input type='hidden' >
 
 			</div>
 		</div>
