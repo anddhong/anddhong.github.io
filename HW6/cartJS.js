@@ -1,8 +1,6 @@
-//cart page has no cart when empty
-// fix table style
 
 window.onload = function(event) {
-	document.getElementById("badge").innerHTML = sessionStorage.getItem('cartSize')
+	updateCartSize()
 	createTable()
 	console.log(sessionStorage)
 	
@@ -30,9 +28,11 @@ window.onload = function(event) {
 }
 
 function deleteItem(cleanBun) {
-	console.log(cleanBun)
 	bun = cleanBun.replace(/-/g,' ')
 	var items = JSON.parse(sessionStorage.getItem('items'))
+	var q = items[bun]
+	var currentSize = sessionStorage.getItem('cartSize')
+	sessionStorage.setItem('cartSize',currentSize-q)
 	delete items[bun]
 	sessionStorage.setItem('items', JSON.stringify(items))
 	location.reload()
@@ -51,4 +51,12 @@ function createTable() {
 
 	var tablePlace = document.getElementById('tablePlace')
 	tablePlace.appendChild(cart)
+}
+
+function updateCartSize() {
+	var currentSize = sessionStorage.getItem('cartSize')
+	if (currentSize===null) {
+		sessionStorage.setItem('cartSize',0)
+	}
+	document.getElementById("badge").innerHTML = sessionStorage.getItem('cartSize')
 }
