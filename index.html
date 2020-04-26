@@ -17,7 +17,9 @@
 
 	    <!-- static files -->
 		<link href="styles.css" rel="stylesheet" type="text/css">
-		<script src="main.js" type="text/javascript"></script>
+    <script src="main.js" type="text/javascript"></script>
+    <script src="pong.js" type="text/javascript"></script>
+    <script src="pacSnake.js" type="text/javascript"></script>
 
 		<!-- Font -->
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&display=swap" rel="stylesheet">
@@ -36,7 +38,7 @@
 		    <div class="navbar-nav">
 		      <a class="nav-item nav-link active" href="#information">Information <span class="sr-only">(current)</span></a>
 		      <a class="nav-item nav-link" href="#projects">Projects</a>
-		      <a class="nav-item nav-link" href="#JS">ProjectJS</a>
+		      <a class="nav-item nav-link" href="#JS">Retro.JS</a>
 		      <a class="nav-item nav-link" href="#contact">Contact</a>
 		    </div>
 		  </div>
@@ -128,21 +130,25 @@
 
 <!------------------- JS SECTION---------------- -->
 
-  <div id="JS">
+<div id="JS">
     <div class="row justify-content-center">
-        <h1 class="display-4 text-light">Project JS</h1>
+        <h1 class="display-4 text-light">Retro.JS</h1>
       </div>
-      <br><br>
 
-<div onclick="window.pong.play()" onmousemove='pong.joystick(event)' class ="animation-container" id ="ac-1">
-  <div id ="player-1"></div>
-  <div id = "ball"></div>
-  <p id='instruct'>Click to play!</p>
-  <p id='score'>Score: 0</p>
-</div>
+      <!-- Pong -->
+  <div onclick="window.pong.play()" onmousemove='window.pong.joystick(event)' class ="animation-container" id ="ac-1">
+    <div id = "ball"></div>
+    <div id ="player-1"></div>
+    <div id ="player-2"></div>
 
-        <br><br>
-        <!-- <div style="height:300px"></div> -->
+    <p id='instruct'>Click to play!</p>
+    <p id='score'>Score: 0</p>
+  </div>
+
+      <!-- Snake -->
+    <div class ="animation-container" id="ac-2">
+      <div id="pacsnake"></div>
+    </div>
 </div>
 
 
