@@ -150,6 +150,10 @@ body, html {
   width: 95%;
   height: 400px;
   position: relative;
+  border: solid black;
+  border-width: 3px;
+  border-color: black;
+  border-radius: 5%;
   background: black;
   margin: 10% 5% 10% 5%;
 }
@@ -201,11 +205,25 @@ body, html {
   left: 50%;
   position: absolute;
   border-right: 20px solid transparent;
-  border-top: 20px solid whitesmoke;
-  border-left: 20px solid whitesmoke;
-  border-bottom: 20px solid whitesmoke;
+  border-top: 20px solid yellow;
+  border-left: 20px solid yellow;
+  border-bottom: 20px solid yellow;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+}
+
+#edible {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.snake-body {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
 }

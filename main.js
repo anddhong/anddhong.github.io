@@ -20,6 +20,8 @@ $(function() {
   (mostly) mobile responsive
   Pong
   JQuery
+  pacSnake - Object Oriented Javascript
+  fitting 2 games in the window
   
   To-do: 
   pacSnake
