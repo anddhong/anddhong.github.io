@@ -1,1 +1,0 @@
-Created the about page for my site.

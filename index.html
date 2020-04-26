@@ -4,7 +4,7 @@
     	<meta charset="utf-8">
     	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    	<!-- ajax -->
+    	<!-- jquery -->
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     	<!-- Bootstrap -->
@@ -12,6 +12,8 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
 
 	    <!-- static files -->
 		<link href="styles.css" rel="stylesheet" type="text/css">
@@ -34,7 +36,7 @@
 		    <div class="navbar-nav">
 		      <a class="nav-item nav-link active" href="#information">Information <span class="sr-only">(current)</span></a>
 		      <a class="nav-item nav-link" href="#projects">Projects</a>
-		      <a class="nav-item nav-link" href="#JS">JS</a>
+		      <a class="nav-item nav-link" href="#JS">ProjectJS</a>
 		      <a class="nav-item nav-link" href="#contact">Contact</a>
 		    </div>
 		  </div>
@@ -51,24 +53,31 @@
 	    	<h1 class="display-4">Who am I?</h1>
 	    </div>
 	    	<br>
-			<p class="lead">
-			  I'm Andrew, a junior at Carnegie Mellon University. I love food, music, and tennis! 
-			</p>
-			<p  class="lead">I'm currently studying Statistics and Machine Learning with a minor in software engineering. I have a passion for web application development and am a Teaching Assistant for 15-112 (Fundamentals of Computer Science). This summer, I'll be interning at Amazon doing Business Intelligence Engineering. </p>
-			<p  class="lead">Enough about me. Check out the rest of this site that I made, and some of my projects.</p>
-			<br>
+			<p class="lead narrower">
+			  I'm Andrew, a junior at Carnegie Mellon University. I love food, music, and tennis! I have a passion for web application development and front end development!</p>
+			<p  class="lead narrower">Check out what I'm up to now, some of my projects, and some of my cool interactive stuff.</p>
 
                 <section id="portfolio">
     <div class="container-fluid p-0">
       <div class="row no-gutters">
-        <div class="col-lg-4 col-sm-6">
-            <img class="logo" src="static/amazon.webp" alt="">
+        <div class="col-lg-4 col-sm-6 text-center">
+          <div class="mt-5 narrower"><a href="https://aws.amazon.com/" target="_blank">
+            <img class="logo" src="static/amazon.webp" alt=""></a>
+            <p class="text-muted mb-0 "><br>Business Intelligence Engineering intern at Amazon</p>
+          </div>
         </div>
-        <div class="col-lg-4 col-sm-6">
-            <img class="logo" src="static/112.png" alt="">
+
+        <div class="col-lg-4 col-sm-6 text-center">
+          <div class="mt-5 narrower"><a href="https://www.cs.cmu.edu/~112/index.html" target="_blank">
+            <img class="logo" src="static/112.png" alt=""></a>
+            <p class="text-muted mb-0"><br>Teaching Assistant for a Computer Science course <a href="https://www.cs.cmu.edu/~112/index.html" target="_blank">15-112</a></p>
+          </div>
         </div>
-        <div class="col-lg-4 col-sm-6">
-            <img class="logo" src="static/mld.png" alt="">
+        <div class="col-lg-4 col-sm-6 text-center">
+          <div class="mt-5 narrower"><a href="https://www.ml.cmu.edu/" target="_blank">
+            <img class="logo" src="static/mld.png" alt=""></a>
+            <p class="text-muted mb-0"><br>Studying Statistics and Machine Learning</p>
+          </div>
         </div>
   </div>
 </div>
@@ -87,7 +96,7 @@
     <div class="container-fluid p-0">
       <div class="row no-gutters">
         <div class="col-lg-4 col-sm-6">
-          <a target="_blank" href="https://open.spotify.com/playlist/5RlwXzvJBAAyhEpgqjNbS7?si=_JQzLTVSQW2kWagqdA63jQ" class="portfolio-box" >
+          <a target="_blank" href="https://dome-app.herokuapp.com/" class="portfolio-box" >
             <img class="img-fluid" src="static/dome.png" alt="">
             <div class="portfolio-box-caption">
               <div class="project-category text-white-50">
@@ -100,7 +109,7 @@
           </a>
         </div>
         <div class="col-lg-4 col-sm-6">
-          <a target="_blank" href="https://open.spotify.com/playlist/5RlwXzvJBAAyhEpgqjNbS7?si=_JQzLTVSQW2kWagqdA63jQ" class="portfolio-box" >
+          <a target="_blank" href="files/webapps.pdf" class="portfolio-box" >
             <img class="img-fluid" src="static/webapps.png" alt="">
             <div class="portfolio-box-caption">
               <div class="project-category text-white-50">
@@ -125,9 +134,11 @@
       </div>
       <br><br>
 
-<div onclick="myMove()" id ="animation-container">
-  <div id ="animate"></div>
-    <p id='instruct'>Click to play/pause</p>
+<div onclick="window.pong.play()" onmousemove='pong.joystick(event)' class ="animation-container" id ="ac-1">
+  <div id ="player-1"></div>
+  <div id = "ball"></div>
+  <p id='instruct'>Click to play!</p>
+  <p id='score'>Score: 0</p>
 </div>
 
         <br><br>
@@ -155,12 +166,18 @@
 <br>
                         <div class='phone'>+1 (917) 769-9818</div>
                     </div>
-                    <div class="col-lg-4 mr-auto text-center">
-                        <svg class="svg-inline--fa fa-envelope fa-w-16 fa-3x mb-3 text-muted" width="5em" height="5em"aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path></svg><!-- <i class="fas fa-envelope fa-3x mb-3 text-muted"></i> --><!-- Make sure to change the email address in BOTH the anchor text and the link target below!--><a class="d-block" href="mailto:andrewh1@andrew.cmu.edu">andrewh1@andrew.cmu.edu</a>
+                    <div class="col-lg-4 mr-auto text-center ">
+                        <svg class="svg-inline--fa fa-envelope fa-w-16 fa-3x mb-3 text-muted" width="1.7em" height="1.7em"aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path></svg><!-- <i class="fas fa-envelope fa-3x mb-3 text-muted"></i> --><!-- Make sure to change the email address in BOTH the anchor text and the link target below!--><a class="d-block" href="mailto:andrewh1@andrew.cmu.edu">andrewh1@andrew.cmu.edu</a>
                     </div>
+
+              
+                <div class="col-lg-4 mr-auto text-center">
+                    <i class="fa fa-linkedin-square fa-5x" aria-hidden="true"></i><br><br>
+                    <a class="d-block" href="https://www.linkedin.com/in/andrew-h1">linkedin.com/in/andrew-h1</a>
                 </div>
-                <br><br>
 	</div>
+                  <br><br>
+</div>
 	<div class='container2'>
 		<!-- <div class='bg2'></div> -->
 	 	<div class='centered2'>Thanks for stopping by</div>
