@@ -123,7 +123,6 @@ class SnakeGame {
             this.recenter()
             this.death = false;
         }
-        console.log('hey')
         // eating
         this.counter += 1
         this.snake.eating(this.counter);
@@ -146,7 +145,6 @@ class SnakeGame {
         }    
     }
     recenter() {
-        console.log($("#ac-2"))
         $("#ac-2").empty()
         $("#ac-2").append('<div id="edible"></div>\
         <div id="pacsnake"></div>\
@@ -211,8 +209,11 @@ if (!Array.prototype.last){
 
   function turn(event) {
     // window.snakeGame.move(event.keyCode)
-    clearInterval(window.snakeGame.id)
-    window.snakeGame.id = setInterval(function() {window.snakeGame.animate(event.keyCode)}, 5);
+    console.log(event.keyCode)
+    if ([37,38,39,40].includes(event.keyCode)) {
+        clearInterval(window.snakeGame.id)
+        window.snakeGame.id = setInterval(function() {window.snakeGame.animate(event.keyCode)}, 5);
+    }
   }
 
   /***************  Key Stuff   ****************/    

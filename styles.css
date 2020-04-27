@@ -147,10 +147,24 @@ body, html {
 
 /********************** All Games **********************/
 
+.animation-container {
+  text-align: center;
+  height: 400px;
+  position: relative;
+  border: solid black;
+  border-width: 3px;
+  border-color: black;
+  border-radius: 5%;
+  background: black;
+  /* margin-left: 100%; */
+  margin: 10% 5% 10% 5%;
+  /* display: block */
+}
+
 .instruct {
   color: white;
   display: inline;
-  margin-left: 42%;
+  /* margin-left: 42%; */
 }
 .score {
   color: white;
@@ -161,19 +175,6 @@ body, html {
 
 
 /********************** Pong **********************/
-
-.animation-container {
-  /* text-align: center; */
-  width: 95%;
-  height: 400px;
-  position: relative;
-  border: solid black;
-  border-width: 3px;
-  border-color: black;
-  border-radius: 5%;
-  background: black;
-  margin: 10% 5% 10% 5%;
-}
 
 #ball {
   width: 40px;
@@ -253,6 +254,7 @@ body, html {
   display: inline-block;
   height: 40px;
   position: absolute;
+  left: 0px;
   width: 30px;
 }
 

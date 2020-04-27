@@ -17,28 +17,29 @@ $(function() {
   /* *********************************************************
   
   Key parts:
+  Scrolling animations and boostrap
   (mostly) mobile responsive
   Pong
-  pacSnake - Object Oriented Javascript
+  pacSnake - Object Oriented Javascript + all divs
   JQuery
-  fitting 2 games in the window
+  *fitting 2 games in the window
   
   To-do: 
-  pacSnake
+  random map generation
+  game notes
   fix animation containers
   Different color for what i'm up to now
   resume on right
   Invert project image (hover vs color)
-  game notes
   parallax scrolling
   all mobile responsive
 
   Ideas:
-  ghosts will chase after pacman if he leaves the box 
   no boxes, just top and bottom borders
+  pacman map from name
 
-  pacsnake - snake but there are ghosts who can become more 
-    ghosts just like pacman.
+  pacsnake 
+    - snake can kill himself
     - ghosts multiply by eating pacman's tail
   
   *********************************************************** */
