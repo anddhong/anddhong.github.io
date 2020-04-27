@@ -19,8 +19,8 @@ $(function() {
   Key parts:
   (mostly) mobile responsive
   Pong
-  JQuery
   pacSnake - Object Oriented Javascript
+  JQuery
   fitting 2 games in the window
   
   To-do: 
@@ -39,5 +39,6 @@ $(function() {
 
   pacsnake - snake but there are ghosts who can become more 
     ghosts just like pacman.
+    - ghosts multiply by eating pacman's tail
   
   *********************************************************** */

@@ -144,9 +144,26 @@ body, html {
 }
 
 
+
+/********************** All Games **********************/
+
+.instruct {
+  color: white;
+  display: inline;
+  margin-left: 42%;
+}
+.score {
+  color: white;
+  float: right;
+  margin-right:5%;
+  display: inline;
+}
+
+
 /********************** Pong **********************/
 
 .animation-container {
+  /* text-align: center; */
   width: 95%;
   height: 400px;
   position: relative;
@@ -156,18 +173,6 @@ body, html {
   border-radius: 5%;
   background: black;
   margin: 10% 5% 10% 5%;
-}
-
-#instruct {
-  color: white;
-  margin-left: 45%;
-  display: inline;
-}
-#score {
-  color: white;
-  float: right;
-  margin-right:5%;
-  display: inline;
 }
 
 #ball {
@@ -226,4 +231,94 @@ body, html {
   height: 30px;
   border-radius: 50%;
   position: absolute;
+}
+
+.wipe {
+  background-color: black;
+  height: 0px;
+  position: absolute;
+}
+
+/* ******************  Ghosts ************** */
+/* Adopted from Gabriel do Nascimento Barbier */
+/* https://codepen.io/_barbier/pen/sDHfa */
+
+.blinky{ background-color: red;}
+.clyde{ background-color: orange;}
+.inky{ background-color: cyan;}
+.pinky{ background-color: pink;}
+
+.ghost{
+  border-radius: 100% 100% 0 0;
+  display: inline-block;
+  height: 40px;
+  position: absolute;
+  width: 30px;
+}
+
+.eyes{
+  height: 15px;
+  left: 50%;
+  margin-left: -12px;
+  position: absolute;
+  width: 22px;
+  top: 12px;
+}
+
+.eye{
+  background: #fff;
+  border-radius: 100%;
+  height: 15px;
+  width: 7px;
+}
+
+.iris{
+  background: blue;
+  border-radius: 100%;
+  height: 10px;
+  position: absolute;
+  width: 4px;
+  top: 2px;
+}
+
+.leftEye{ float: left; }
+.leftEye .iris{ left: 1px; }
+
+.rightEye{float: right; }
+.rightEye .iris{ right: 2px; }
+
+.ghostTail{
+  background-repeat: repeat-x;
+  bottom: -9px;
+  height: 10px;
+  position: absolute;
+  width: 30px;
+}
+
+.blinky .ghostTail{
+  background:
+    linear-gradient(-45deg, transparent 75%, red 75%) 0 0%,
+    linear-gradient( 45deg, transparent 75%, red 75%) 0 0%;
+  background-size:10px 10px, 10px 10px;
+}
+
+.clyde .ghostTail{
+  background:
+    linear-gradient(-45deg, transparent 75%, orange 75%) 0 0%,
+    linear-gradient( 45deg, transparent 75%, orange 75%) 0 0%;
+  background-size:10px 10px, 10px 10px;
+}
+
+.inky .ghostTail{
+  background:
+    linear-gradient(-45deg, transparent 75%, cyan 75%) 0 0%,
+    linear-gradient( 45deg, transparent 75%, cyan 75%) 0 0%;
+  background-size:10px 10px, 10px 10px;
+}
+
+.pinky .ghostTail{
+  background:
+    linear-gradient(-45deg, transparent 75%, pink 75%) 0 0%,
+    linear-gradient( 45deg, transparent 75%, pink 75%) 0 0%;
+  background-size:10px 10px, 10px 10px;
 }
