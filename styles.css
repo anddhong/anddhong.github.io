@@ -2,13 +2,8 @@ body, html {
   height: 100%;
 }
 .bg {
-  /* The image used */
   background-image: url("static/taipei.jpg");
-
-  /* Full height */
   height: 80%;
-
-  /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -145,7 +140,9 @@ body, html {
 
 
 
-/********************** All Games **********************/
+/****************************** *************************************/
+/****************************** All Games ***************************/
+/****************************** *************************************/
 
 .animation-container {
   text-align: center;
@@ -240,9 +237,10 @@ body, html {
   position: absolute;
 }
 
-/* ******************  Ghosts ************** */
-/* Adopted from Gabriel do Nascimento Barbier */
-/* https://codepen.io/_barbier/pen/sDHfa */
+/* ********  Ghosts *********** */
+/* Adopted from:
+  Gabriel do Nascimento Barbier 
+https://codepen.io/_barbier/pen/sDHfa */
 
 .blinky{ background-color: red;}
 .clyde{ background-color: orange;}
@@ -323,4 +321,23 @@ body, html {
     linear-gradient(-45deg, transparent 75%, pink 75%) 0 0%,
     linear-gradient( 45deg, transparent 75%, pink 75%) 0 0%;
   background-size:10px 10px, 10px 10px;
+}
+
+
+/****************************** *************************************/
+/****************************** PACMAN    ***************************/
+/****************************** *************************************/
+
+.h-line {
+  background-color: white;
+  position: absolute;
+  height: 4px;
+  width: 4px;
+}
+
+.v-line {
+  background-color: white;
+  position: absolute;
+  height: 4px;
+  width: 4px;
 }

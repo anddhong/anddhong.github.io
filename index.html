@@ -20,6 +20,7 @@
     <script src="main.js" type="text/javascript"></script>
     <script src="pong.js" type="text/javascript"></script>
     <script src="pacSnake.js" type="text/javascript"></script>
+    <script src="map.js" type="text/javascript"></script>
 
 		<!-- Font -->
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,100&display=swap" rel="stylesheet">
@@ -153,7 +154,7 @@
   <div class="col-lg-6">
 
       <!-- pacSnake -->
-    <div class ="animation-container" id="ac-2">
+    <div onclick="deactivatePac(); activateSnake()" class ="animation-container" id="ac-2">
       <div id='edible'></div>
       <div id="pacsnake"></div>
       <div class="ghost pinky" id="ghost">
@@ -171,9 +172,9 @@
 <div class="col-lg-6">
 
       <!-- pacman -->
-    <!-- <div class ="animation-container" id="ac-3">
-      
-    </div> -->
+    <div onclick="activatePac(); deactivateSnake()" class ="animation-container" id="ac-3">
+      <!-- <div class='h-line'></div> -->
+    </div>
   </div>
   
 </div>

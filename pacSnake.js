@@ -220,25 +220,29 @@ class SnakeGame {
     }
   }
   
-// Array.last
-if (!Array.prototype.last){
-    Array.prototype.last = function(){
-        return this[this.length - 1];
-    };
-};
+
 
 // Load
   $(window).on('load', function() {
     window.snakeGame = new SnakeGame();
     $(document).on('keydown', turn)
+    window.inSnake = false;
   });
 
   function turn(event) {
-    if ([37,38,39,40].includes(event.keyCode)) {
+    if ([37,38,39,40].includes(event.keyCode) &&
+    window.inSnake) {
         clearInterval(window.snakeGame.id)
         window.snakeGame.id = setInterval(function() {window.snakeGame.animate(event.keyCode)}, 5);
     }
   }
+  function activateSnake(event) {
+    window.inSnake = true;
+  }
+  function deactivateSnake(event) {
+    window.inSnake = false;
+}
+
 
   /***************  Key Stuff   ****************/    
   window.addEventListener("keydown", function(e) {
@@ -247,3 +251,10 @@ if (!Array.prototype.last){
         e.preventDefault();
     }
   }, false);
+
+  // Array.last
+if (!Array.prototype.last){
+    Array.prototype.last = function(){
+        return this[this.length - 1];
+    };
+};
