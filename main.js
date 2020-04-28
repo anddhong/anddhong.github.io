@@ -22,21 +22,19 @@ $(function() {
   Pong
   pacSnake - Object Oriented Javascript + all divs
   JQuery
-  *fitting 2 games in the window
   
   To-do: 
+  fix lecture slides, add one more project
   random map generation
   game notes
-  fix animation containers
   Different color for what i'm up to now
-  resume on right
-  Invert project image (hover vs color)
+  resume on right / image
   parallax scrolling
   all mobile responsive
 
   Ideas:
   no boxes, just top and bottom borders
-  pacman map from name
+  pacman map from name, constantly changing pacman map
 
   pacsnake 
     - snake can kill himself

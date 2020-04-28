@@ -5,7 +5,7 @@ class SnakeHead {
         this.y = snakeElem.position().top
         this.speed = .7
         this.diam = parseInt(snakeElem.css('border-right').split('px ')[0])*2
-        this.lag = 70
+        this.lag = 80
         this.lastPos = [];
         this.close = false;
         this.facing = 'right'
@@ -63,6 +63,29 @@ class SnakeHead {
             this.close = !this.close;
         }
     }
+    hitSelf(body) {
+        for (var [i,part] of body.entries()){
+            if (i==0) {continue; }
+            var px = (part.x+part.diam/2)
+            var py = (part.y+part.diam/2)
+            if (this.x < px+this.speed && this.x + this.diam >= px) {
+                if (this.y < py+this.speed && this.y + this.diam >= py) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    hitWall() {
+        var ac = $("#ac-2")
+        var offset = 5;
+        if (this.x <= -1*offset || this.x + this.diam >= ac.width()+offset) {
+            return true;
+        } else if (this.y <= -1*offset || this.y + this.diam>= ac.height()+offset) {
+            return true;
+        }
+        return false;
+    }
 }
 
 class SnakeBody extends SnakeHead {
@@ -85,7 +108,7 @@ class Ghost {
         this.ghostElem = obj;
         this.y = obj.position().top
         this.x = obj.position().left
-        this.speed = .2
+        this.speed = .1
     }
     move(pacSnake) {
         if (this.x < pacSnake.x) {
@@ -140,9 +163,12 @@ class SnakeGame {
             this.spawn();
             this.updateScore();
         }
-        if (this.snake.collide($("#ghost"))) {
+        if (this.snake.collide($("#ghost")) ||
+            this.snake.hitWall() || 
+            this.snake.hitSelf(this.body)) {
             this.deathAnimation()
-        }    
+        }
+
     }
     recenter() {
         $("#ac-2").empty()
@@ -208,8 +234,6 @@ if (!Array.prototype.last){
   });
 
   function turn(event) {
-    // window.snakeGame.move(event.keyCode)
-    console.log(event.keyCode)
     if ([37,38,39,40].includes(event.keyCode)) {
         clearInterval(window.snakeGame.id)
         window.snakeGame.id = setInterval(function() {window.snakeGame.animate(event.keyCode)}, 5);
