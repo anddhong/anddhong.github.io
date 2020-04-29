@@ -23,21 +23,24 @@ $(function() {
   pacSnake - Object Oriented Javascript + all divs
   JQuery
   
+
   To-do: 
+  animate gate swings
   fix lecture slides, add one more project
-  random map generation
   game notes
   Different color for what i'm up to now
   resume on right / image
-  parallax scrolling
-  all mobile responsive
+
 
   Ideas:
-  no boxes, just top and bottom borders
-  pacman map from name, constantly changing pacman map
+  Pacsnake can escape box
+  playing with fire 
+  space bar to change map when playing
+  user can change dimensions, sparseness...
+
 
   pacsnake 
-    - snake can kill himself
+    - organize when recenter, put more,
     - ghosts multiply by eating pacman's tail
   
   *********************************************************** */

@@ -331,13 +331,14 @@ https://codepen.io/_barbier/pen/sDHfa */
 .h-line {
   background-color: white;
   position: absolute;
-  height: 4px;
+  height:4px;
   width: 4px;
 }
 
 .v-line {
   background-color: white;
   position: absolute;
-  height: 4px;
-  width: 4px;
+  height:4px;
+  transform: rotate(90deg)  scale(0.8);;
+  transform-origin: top left;
 }
