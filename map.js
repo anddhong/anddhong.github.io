@@ -13,7 +13,7 @@ class PacMap {
     buildMap() {
         for (var r of range(0,this.rows-1)) {
             for (var c of range(0,this.cols-1)) {
-                if (Math.random() < .4) {
+                if (Math.random() < .3) {
                     var s = 'h-' +r+'-'+c;
                     this.lines.push(s)
                     var div = "<div id='" + s + "' class='h-line'></div>"
@@ -36,12 +36,6 @@ class PacMap {
         for (var [i,s] of this.lines.entries()) {
             if (Math.random()<.3) {
                 this.newLines.push(s);
-                if (s[0]=='h') {
-                    var newS = 'v' + s.substring(1)
-                } else {
-                    var newS = 'h'+ s.substring(1)
-                }
-                this.lines[i] = newS;
             }
         }
         window.pacMap.id1 = setInterval(function() {window.pacMap.detract()}, 10);
@@ -83,6 +77,9 @@ class PacMap {
             for (var s of this.newLines) {
                 $('#'+s).width(this.width/this.cols)
             }
+            var newLines = [];
+            $("#ac-3").find("div").each(function(){ newLines.push(this.id); });
+            this.lines = newLines;
         }
     }
 }
