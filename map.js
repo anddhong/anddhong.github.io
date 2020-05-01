@@ -1,6 +1,6 @@
 class PacMap {
     constructor() {
-        [this.rows, this.cols] = [10, 10]
+        [this.rows, this.cols] = [11, 10]
         this.ac = $('#ac-3')
         this.width = this.ac.width()
         this.height = this.ac.height()
@@ -122,6 +122,33 @@ class Pacman extends SnakeHead {
             this.close = !this.close;
         }
     }
+    move(e) {
+        // console.log(this.x, this.pacmap.width, this.pacmap.cols)
+        var xc = Math.floor(this.x/(this.pacmap.width/this.pacmap.cols))
+        var yc = Math.floor(this.y/(this.pacmap.height/this.pacmap.rows))
+        if (this.check) {
+            console.log(xc, this.currentXc+1, yc, this.currentYc+1)
+            if (xc == this.currentXc+1 || yc == this.currentYc+1 ||
+                xc == this.currentXc-1 || yc == this.currentYc-1) {
+                clearInterval(window.pacGame.id2)
+                this.check = false;
+                var newE = this.newE
+                window.pacGame.id2 = setInterval(function() {window.pacGame.animate(newE)}, 30);
+            }
+        }
+        super.move(e)
+    }
+    queueTurn(e) {
+        if (window.pacGame.id2==undefined) { // move if no interval set
+            window.pacGame.id2 = setInterval(function() {window.pacGame.animate(e)}, 30);
+        } else { 
+            this.newE = e
+            console.log(this.newE)
+            this.currentXc = Math.floor(this.x/(this.pacmap.width/this.pacmap.cols))
+            this.currentYc = Math.floor(this.y/(this.pacmap.height/this.pacmap.rows))
+            this.check = true;
+        }
+    }
 }
 
 class PacGame {
@@ -149,8 +176,7 @@ $(window).on('load', function() {
   function turn2(event) {
     if ([37,38,39,40].includes(event.keyCode) &&
     window.inPac) {
-        clearInterval(window.pacGame.id2)
-        window.pacGame.id2 = setInterval(function() {window.pacGame.animate(event.keyCode)}, 30);
+        window.pacGame.pacman.queueTurn(event.keyCode)
     }
   }
 
