@@ -1,14 +1,15 @@
-
 class PacMap {
     constructor() {
-        [this.rows, this.cols] = [12, 12]
+        [this.rows, this.cols] = [10, 10]
         this.ac = $('#ac-3')
-        console.log(this.rows, this.ac)
         this.width = this.ac.width()
         this.height = this.ac.height()
         this.id1;
         this.lines = [];
+        this.spd=5
         this.buildMap();
+        this.hr = (this.height/this.rows)/(this.width/this.cols)*1.1
+        $('.v-line').css('transform','rotate(90deg) scale(' + this.hr + ')')
     }
     buildMap() {
         for (var r of range(0,this.rows-1)) {
@@ -17,14 +18,14 @@ class PacMap {
                     var s = 'h-' +r+'-'+c;
                     this.lines.push(s)
                     var div = "<div id='" + s + "' class='h-line'></div>"
-                }  else if (Math.random() < .5) {
+                }  else if (Math.random() < .4) {
                     var s = 'v-' +r+'-'+c;
                     var div = "<div id='" + s + "' class='v-line'></div>"
                 }   else {
                     continue;
                 }
                 this.lines.push(s)
-                this.ac.append(div)
+                $('#lines').append(div)
                 $('#'+s).css({'top':r*this.height/this.rows,
                     'left':c*this.width/this.cols,
                     'width': this.width/this.cols,})
@@ -34,22 +35,20 @@ class PacMap {
     shuffle() {
         this.newLines = [];
         for (var [i,s] of this.lines.entries()) {
-            if (Math.random()<.3) {
+            if (Math.random()<.5) {
                 this.newLines.push(s);
             }
         }
-        window.pacMap.id1 = setInterval(function() {window.pacMap.detract()}, 10);
+        window.pacGame.pacMap.id1 = setInterval(function() {window.pacGame.pacMap.detract()}, 50);
     }
     detract() {
         for (var s of this.newLines) {
-            $('#'+s).width('-=2')
+            $('#'+s).width('-='+this.spd)
         }
-        console.log(s, $('#'+s), $('#'+s).width())
         if ($('#'+s).width() <= 1) {
             clearInterval(this.id1)
-            console.log('b')
             this.replaceId();
-            window.pacMap.id1 = setInterval(function() {window.pacMap.expand()}, 10);
+            this.id1 = setInterval(function() {window.pacGame.pacMap.expand()}, 30);
         }
     }
     replaceId() {
@@ -67,10 +66,12 @@ class PacMap {
             }
             this.newLines[i] = newS
         }
+        $('.h-line').css('transform','none')
+        $('.v-line').css('transform','rotate(90deg) scale(' + this.hr + ')')
     }
     expand() {
         for (var s of this.newLines) {
-            $('#'+s).width('+=2')
+            $('#'+s).width('+='+this.spd)
         }
         if ($('#'+s).width() >= this.width/this.cols) {
             clearInterval(this.id1)
@@ -78,25 +79,92 @@ class PacMap {
                 $('#'+s).width(this.width/this.cols)
             }
             var newLines = [];
-            $("#ac-3").find("div").each(function(){ newLines.push(this.id); });
+            $("#lines").find("div").each(function(){ newLines.push(this.id); 30});
             this.lines = newLines;
         }
     }
 }
 
+class Pacman extends SnakeHead {
+    constructor(pacmap) {
+        super($('#pacman'))
+        this.pacmap = pacmap
+        var ratio = Math.min(pacmap.height/pacmap.rows, pacmap.width/pacmap.cols)/2*.9
+        $('#pacman').css({'border-right': ratio + 'px solid transparent',
+            'border-top': ratio + 'px solid yellow',
+            'border-left': ratio + 'px solid yellow',
+            'border-bottom': ratio + 'px solid yellow',
+            'border-top-left-radius': ratio,
+            'border-top-right-radius': ratio,
+            'border-bottom-left-radius': ratio,
+            'border-bottom-right-radius': ratio,}
+          )
+        this.ratio = ratio
+        this.speed = 5
+        this.xc = 0
+        this.yc = 0
+        this.x = 0
+        this.y = 0
+        this.snakeElem.css({'left': this.x, 'top': this.y})
+    }
+    eating(counter) {
+        if (counter % 10 == 0) {
+            for (var face of ['top','right','left','bottom']) {
+                if (face != this.facing) {
+                    this.snakeElem.css('border-' + face, this.ratio+'px solid yellow');
+                }
+            }
+            if (!this.close) {
+                this.snakeElem.css('border-' + this.facing, this.ratio+'px solid yellow');
+            } else {
+                this.snakeElem.css('border-' + this.facing, this.ratio+'px solid transparent');
+            }
+            this.close = !this.close;
+        }
+    }
+}
+
+class PacGame {
+    constructor() {
+        this.pacMap = new PacMap();
+        this.pacman = new Pacman(this.pacMap);
+        this.id2;
+        this.counter = 0;
+    }
+    animate(e) {
+        this.counter += 1
+        this.pacman.eating(this.counter);
+        this.pacman.move(e);
+    }
+}
+
 // Load
 $(window).on('load', function() {
-    window.pacMap = new PacMap();
+    window.pacGame = new PacGame();
     window.inPac = false;
+    $(document).on('keydown', turn2)
 })
 
+  // Turn
+  function turn2(event) {
+    if ([37,38,39,40].includes(event.keyCode) &&
+    window.inPac) {
+        clearInterval(window.pacGame.id2)
+        window.pacGame.id2 = setInterval(function() {window.pacGame.animate(event.keyCode)}, 30);
+    }
+  }
+
+
+// Activate / Deactivate window
 function activatePac(event) {
     window.inPac = true;
-    window.pacMap.shuffle()
+    window.pacGame.pacMap.shuffle()
   }
-  function deactivatePac(event) {
+function deactivatePac(event) {
     window.inPac = false;
 }
+
+
 
 /***************** Misc. ***************/
 // Array.last

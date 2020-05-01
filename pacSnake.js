@@ -173,7 +173,7 @@ class SnakeGame {
     recenter() {
         $("#ac-2").empty()
         $("#ac-2").append('<div id="edible"></div>\
-        <div id="pacsnake"></div>\
+        <div id="pacsnake" class="pac"></div>\
         <div class="ghost pinky" id="ghost">\
           <div class="eyes">\
             <div class="eye leftEye"><div class="iris"></div></div>\
@@ -225,11 +225,12 @@ class SnakeGame {
 // Load
   $(window).on('load', function() {
     window.snakeGame = new SnakeGame();
-    $(document).on('keydown', turn)
+    $(document).on('keydown', turn1)
     window.inSnake = false;
   });
 
-  function turn(event) {
+  // Turn
+  function turn1(event) {
     if ([37,38,39,40].includes(event.keyCode) &&
     window.inSnake) {
         clearInterval(window.snakeGame.id)
