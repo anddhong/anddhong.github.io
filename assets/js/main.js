@@ -14,6 +14,11 @@ $(function() {
   });
 });
 
+// // Separate HTML files
+// $(function(){
+//   $("#information-container").load("information.html"); 
+// });
+
   /* *********************************************************
   
   Key parts:

@@ -89,7 +89,7 @@ class Pacman extends SnakeHead {
     constructor(pacmap) {
         super($('#pacman'))
         this.pacmap = pacmap
-        var ratio = Math.min(pacmap.height/pacmap.rows, pacmap.width/pacmap.cols)/2*.9
+        var ratio = Math.min(pacmap.height/pacmap.rows, pacmap.width/pacmap.cols)/2*.7
         $('#pacman').css({'border-right': ratio + 'px solid transparent',
             'border-top': ratio + 'px solid yellow',
             'border-left': ratio + 'px solid yellow',
@@ -100,9 +100,8 @@ class Pacman extends SnakeHead {
             'border-bottom-right-radius': ratio,}
           )
         this.ratio = ratio
+        this.diam = parseInt(this.snakeElem.css('border-right').split('px ')[0])*2
         this.speed = 5
-        this.xc = 0
-        this.yc = 0
         this.x = 0
         this.y = 0
         this.snakeElem.css({'left': this.x, 'top': this.y})
@@ -123,30 +122,41 @@ class Pacman extends SnakeHead {
         }
     }
     move(e) {
-        // console.log(this.x, this.pacmap.width, this.pacmap.cols)
-        var xc = Math.floor(this.x/(this.pacmap.width/this.pacmap.cols))
-        var yc = Math.floor(this.y/(this.pacmap.height/this.pacmap.rows))
-        if (this.check) {
-            console.log(xc, this.currentXc+1, yc, this.currentYc+1)
-            if (xc == this.currentXc+1 || yc == this.currentYc+1 ||
-                xc == this.currentXc-1 || yc == this.currentYc-1) {
-                clearInterval(window.pacGame.id2)
-                this.check = false;
-                var newE = this.newE
-                window.pacGame.id2 = setInterval(function() {window.pacGame.animate(newE)}, 30);
+        super.move(e) 
+        for (var s of this.pacmap.lines) {
+            if (this.borderCollide(s)) {
+                this.stepBack(e)
+                break
             }
         }
-        super.move(e)
     }
-    queueTurn(e) {
-        if (window.pacGame.id2==undefined) { // move if no interval set
-            window.pacGame.id2 = setInterval(function() {window.pacGame.animate(e)}, 30);
-        } else { 
-            this.newE = e
-            console.log(this.newE)
-            this.currentXc = Math.floor(this.x/(this.pacmap.width/this.pacmap.cols))
-            this.currentYc = Math.floor(this.y/(this.pacmap.height/this.pacmap.rows))
-            this.check = true;
+    borderCollide(s) {
+        var obj = $('#'+s)
+        if (s[0]=='v') {
+            var objLeft = obj.position().left
+            var objRight = objLeft+obj.height()
+            var objTop = obj.position().top
+            var objBot = objTop + obj.width()*this.pacmap.hr
+            if (this.x < objRight && this.x + this.diam >= objLeft) {
+                if (this.y < objBot && this.y + this.diam >= objTop) {
+                    console.log(this.pacmap.hr)
+                    return true;
+                }
+            }
+            return false;
+        } else {
+            return this.collide(obj)
+        }
+    }
+    stepBack(e) {
+        if (e==37) {
+            this.x += this.speed
+        } else if (e==38) {
+            this.y += this.speed
+        } else if (e==39) {
+            this.x -= this.speed
+        } else if (e==40) {
+            this.y -= this.speed
         }
     }
 }
@@ -176,7 +186,8 @@ $(window).on('load', function() {
   function turn2(event) {
     if ([37,38,39,40].includes(event.keyCode) &&
     window.inPac) {
-        window.pacGame.pacman.queueTurn(event.keyCode)
+        clearInterval(window.pacGame.id2)
+        window.pacGame.id2 = setInterval(function() {window.pacGame.animate(event.keyCode)}, 30);
     }
   }
 

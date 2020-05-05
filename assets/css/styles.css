@@ -2,7 +2,7 @@ body, html {
   height: 100%;
 }
 .bg {
-  background-image: url("static/taipei.jpg");
+  background-image: url("../files/taipei.jpg");
   height: 80%;
   background-position: center;
   background-repeat: no-repeat;
@@ -39,7 +39,7 @@ body, html {
   text-align: center;
   color: white;
   height:70%;
-  background-image: url("static/sunset.jpg");
+  background-image: url("../files/sunset.jpg");
   background-size: cover; 
   background-repeat: no-repeat;
   background-position: center;
@@ -65,7 +65,7 @@ body, html {
 }
 
 #JS {
-  background-image: url("static/wood.jpg");
+  background-image: url("../files/wood.jpg");
   background-size: cover;
  
   background-repeat: no-repeat;
