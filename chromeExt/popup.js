@@ -8,7 +8,7 @@ window.onload = function() {
 	$('#btn').click(function() 
 	{
 	  console.log('clicked');
-	  window.open("https://www.w3schools.com");
+	  window.open("https://anddhong.github.io/chromeExt/expose.html");
 	});
 };
 
