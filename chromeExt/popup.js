@@ -1,4 +1,16 @@
-console.log('hello')
+console.log('hellosa')
+
+
+
+
+
+window.onload = function() {
+	$('#btn').click(function() 
+	{
+	  console.log('clicked');
+	  window.open("https://www.w3schools.com");
+	});
+};
 
 // document.addEventListener('DOMContentLoaded', function() {
 //   var checkPageButton = document.getElementById('checkPage');

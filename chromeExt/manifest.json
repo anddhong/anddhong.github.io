@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+
+  "name": "Article Expose Plugin",
+  "description": "This extension will expose an NYT Article",
+  "version": "1.0",
+
+  "browser_action": {
+   "default_icon": "icon.png",
+   "default_popup": "expose.html"
+  },
+  "permissions": [
+   "activeTab"
+   ],
+  "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'"
+}
